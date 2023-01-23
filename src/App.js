@@ -1,6 +1,7 @@
-import TodoItem from './components/TodoItem'
+import { useState } from 'react'
+import TodoItem from './components/item/TodoItem'
 
-const todos = [
+const data = [
 	{
 		_id: '3234hj54646',
 		title: 'Finish the essay collaboration',
@@ -19,11 +20,16 @@ const todos = [
 ]
 
 const App = () => {
+	const [todos, setTodos] = useState(data)
 	return (
-		<div className='bg-gray-900 h-screen text-white'>
-			{todos.map(todo => (
-				<TodoItem key={todo} todo={todo} />
-			))}
+		<div className=' text-white w-4/5 mx-auto'>
+			<h1 className='text-2xl font-bold text-center mb-4'>Todo for junior</h1>
+			<div>
+				{' '}
+				{todos.map(todo => (
+					<TodoItem key={todo} todo={todo} />
+				))}
+			</div>
 		</div>
 	)
 }
